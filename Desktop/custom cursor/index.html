@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>custom_cursor</title>
+    <link rel="shortcut icon" href="https://image.shutterstock.com/image-vector/click-icon-cursor-260nw-754225624.jpg" type="image/x-icon">
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background-color: black;
+    cursor: none;
+}
+.dot{
+    width: 5px;
+    height: 5px;
+    background-color: white;
+}
+.outline{
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+}
+.dot,
+.outline{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+</style>
+<body>
+    <div class="dot" data_dot></div>
+    <div class="outline" data_outline></div>
+    <script>
+        const dot=document.querySelector("[data_dot]")
+        const outline=document.querySelector("[data_outline]")
+        window.addEventListener("mousemove",function (e){
+            const posX=e.clientX;
+            const posY=e.clientY;
+        dot.style.left=`${posX}px`;
+        dot.style.top=`${posY}px`;
+        outline.style.left=`${posX}px`;
+        outline.style.top=`${posY}px`;
+
+
+        });
+    </script>
+</body>
+</html>
